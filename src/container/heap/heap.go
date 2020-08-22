@@ -40,8 +40,9 @@ type Interface interface {
 // and may be called whenever the heap invariants may have been invalidated.
 // The complexity is O(n) where n = h.Len().
 func Init(h Interface) {
-	// heapify
+	// heapify . // 10
 	n := h.Len()
+	// n:10 i:4,3,2,1,0 .
 	for i := n/2 - 1; i >= 0; i-- {
 		down(h, i, n)
 	}
@@ -101,6 +102,7 @@ func up(h Interface, j int) {
 func down(h Interface, i0, n int) bool {
 	i := i0
 	for {
+		// 4+1 =5
 		j1 := 2*i + 1
 		if j1 >= n || j1 < 0 { // j1 < 0 after int overflow
 			break
