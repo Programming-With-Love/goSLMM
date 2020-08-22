@@ -42,6 +42,7 @@ func (r *Ring) Prev() *Ring {
 // in the ring and returns that ring element. r must not be empty.
 //
 func (r *Ring) Move(n int) *Ring {
+	// 如果 r 为空 则初始化
 	if r.next == nil {
 		return r.init()
 	}
